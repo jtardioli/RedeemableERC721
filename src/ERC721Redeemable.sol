@@ -2,21 +2,17 @@
 pragma solidity 0.8.13;
 
 import "solmate/tokens/ERC721.sol";
-import "openzeppelin-contracts/contracts/access/Ownable.sol";
 
 error FailedToRedeem();
 error NotOwner();
 
-abstract contract ERC721Redeemable is ERC721, Ownable {
+abstract contract ERC721Redeemable is ERC721 {
   uint totalNFTs;
 
   constructor() {
     totalNFTs = 0;
   }
 
-  function withdraw() external onlyOwner {
-
-  }
 
   function _redeemableMint(address to, uint256 id) internal {
     totalNFTs++;
